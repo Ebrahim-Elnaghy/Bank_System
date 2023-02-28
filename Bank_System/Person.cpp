@@ -2,9 +2,13 @@
 
 
 // constructor
-Person::Person(string name , int id , string password) {
+Person::Person() {
+    this->name = "N/A";
+    this->id = 0;
+    this->password = "N/A";
+}
+Person::Person(string name , string password) {
     setName(name);
-    setId(id);
     setPassword(password);
 }
 
@@ -16,10 +20,6 @@ void Person:: setName(string name) {
     else {
         cout << "Name is invalid." << endl;
     }
-}
-
-void Person:: setId(int id) {
-    this->id = id;
 }
 
 void Person:: setPassword(string password) {

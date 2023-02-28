@@ -2,6 +2,18 @@
 
 
 
+int Client::count = 2000;
+// constructor
+Client::Client() : Person() {
+    this->balance = 0.0;
+    count++;
+    this->id = count;
+}
+Client:: Client(string name , string password , double balance) : Person(name , password) {
+    setBalance(balance);
+    count++;
+    this->id = count;
+}
 // setters and getters
 void Client:: setBalance(double balance) {
     if (Validation::validateClientBalance(balance)) {
@@ -54,6 +66,5 @@ void Client:: transfer(Client& other, double amount) {
 void Client:: display() {
     cout << "Name: " << getName() << endl;
     cout << "Id: " << getId() << endl;
-    cout << "Password: " << getPassword() << endl;
     cout << "Balance: " << getBalance() << endl;
 }

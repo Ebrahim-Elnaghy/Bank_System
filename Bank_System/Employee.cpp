@@ -1,6 +1,19 @@
 #include "Employee.h"
 
 
+
+int Employee::count = 1000;
+// constructor
+Employee::Employee() : Person() {
+    this->salary = 0.0;
+    count++;
+    this->id = count;
+};
+Employee:: Employee(string name , string password, double salary) : Person(name , password) {
+    setSalary(salary);
+    count++;
+    this->id = count;
+}
 // setters
 void Employee:: setSalary(double salary) {
     if (Validation::validateEmployeeSalary(salary)) {
@@ -20,6 +33,5 @@ double Employee:: getSalary() {
 void Employee:: display() {
     cout << "Name: " << getName() << endl;
     cout << "Id: " << getId() << endl;
-    cout << "Password: " << getPassword() << endl;
     cout << "Salary: " << getSalary() << endl;
 }

@@ -7,11 +7,11 @@ using namespace std;
 class Employee : public Person {
 private:
     double salary;
+    static int count;
 public:
     // constructor
-    Employee(string name, int id, string password, double salary = 5000 ) : Person(name, id, password) {
-        setSalary(salary);
-    }
+    Employee();
+    Employee(string name , string password , double salary);
     // setters
     void setSalary(double salary);
     // getters

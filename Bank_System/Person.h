@@ -8,15 +8,16 @@ using namespace std;
 class Person {
 private:
     string name;
-    int id;
     string password;
+protected:
+    int id;
 
 public:
     // constructor
-    Person(string name = "N/A", int id = 0, string password = "N/A");
+    Person();
+    Person(string name , string password);
     // setters
     void setName(string name);
-    void setId(int id);
     void setPassword(string password);
     // getters
     string getName();

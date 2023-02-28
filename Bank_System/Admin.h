@@ -5,9 +5,12 @@
 using namespace std;
 
 class Admin : public Employee {
+private:
+    static int count;
 public:
     // constructor
-    Admin(string name, int id, string password, double salary = 5000) : Employee(name, id, password, salary) {}
+    Admin();
+    Admin(string name , string password, double salary);
     //Methods
     void display();
 };

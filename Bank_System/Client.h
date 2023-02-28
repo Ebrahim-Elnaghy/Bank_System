@@ -8,12 +8,11 @@ using namespace std;
 class Client : public Person {
 private:
     double balance;
-
+    static int count;
 public:
     // constructor
-    Client(string name, int id, string password, double balance = 1500 ) : Person(name, id, password) {
-        setBalance(balance);
-    }
+    Client();
+    Client(string name , string password , double balance);
     // setters and getters
     void setBalance(double balance);
     double getBalance();
