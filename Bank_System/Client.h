@@ -7,24 +7,26 @@ using namespace std;
 
 class Client : public Person {
 private:
-    double balance;
-    static int count;
+	double balance;
 public:
-    // constructor
+	// constructor
     Client();
-    Client(string name , string password , double balance);
-    // setters and getters
-    void setBalance(double balance);
-    double getBalance();
-    //Methods
-    // deposit
-    void deposit(double amount);
-    // withdraw
-    void withdraw(double amount);
-    // check balance
-    void checkBalance();
-    // transfer money to another client
-    void transfer(Client& other, double amount);
-    // display Client info
-    void display();
+	Client(string name , string password, double balance);
+	// setters and getters
+	void setBalance(double balance);
+	double getBalance();
+	//Methods
+	// deposit
+	void deposit(double amount);
+	// withdraw
+	void withdraw(double amount);
+	// check balance
+	void checkBalance();
+	// transfer money to another client
+	void transfer(Client& other, double amount);
+	// display Client info
+	void display();
 };
+
+static vector<Client> clients;
+static vector<Client>::iterator clients_iterator;

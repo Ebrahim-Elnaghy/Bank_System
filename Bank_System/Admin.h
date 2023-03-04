@@ -5,12 +5,15 @@
 using namespace std;
 
 class Admin : public Employee {
-private:
-    static int count;
 public:
-    // constructor
-    Admin();
-    Admin(string name , string password, double salary);
-    //Methods
-    void display();
+	// constructor
+	Admin();
+	Admin(string name,int id, string password, double salary);
+	//Methods
+	void display();
+	void listEmployees();
+	Employee* searchEmployee(int id);
 };
+
+static vector<Admin> admins;
+static vector<Admin>::iterator admins_iterator;

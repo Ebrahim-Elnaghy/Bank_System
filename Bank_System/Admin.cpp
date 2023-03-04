@@ -2,19 +2,34 @@
 
 
 
-int Admin::count = 0;
 // constructor
-Admin::Admin() : Employee() {
-    count++;
-    this->id = count;
-}
-Admin:: Admin(string name , string password, double salary) : Employee(name , password , salary) {
-    count++;
-    this->id = count;
+Admin::Admin() : Employee() {}
+Admin::Admin(string name,int id,string password, double salary) : Employee(name,id,password, salary){
 }
 //Methods
-void Admin:: display() {
-    cout << "Name: " << getName() << endl;
-    cout << "Id: " << getId() << endl;
-    cout << "Salary: " << getSalary() << endl;
+void Admin::display() {
+	Person::display();
+	cout << "Salary: " << getSalary() << endl;
+}
+
+void Admin::listEmployees() {
+
+	for (employees_iterator = employees.begin(); employees_iterator != employees.end(); employees_iterator++) {
+		employees_iterator->display();
+		cout << "=================" << endl;
+	}
+}
+
+Employee* Admin:: searchEmployee(int id)
+{
+    for (int i = 0; i < employees.size(); i++)
+    {
+        if (employees[i].getID() == id)
+        {
+            Employee* c = &employees[i];
+            cout << "found";
+            return c;
+        }
+    }
+    return nullptr;
 }
