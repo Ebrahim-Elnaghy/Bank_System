@@ -26,7 +26,8 @@ Employee Parser::parseToEmployee(string line) {
 	employee.setName(info[0]);
 	employee.setID(stoi(info[1]));
 	employee.setPassword(info[2]);
-	employee.setSalary(stod(info[3]));
+	employee.setBalance(stod(info[3]));
+	employee.setSalary(stod(info[4]));
 	return employee;
 }
 
@@ -36,7 +37,8 @@ Admin Parser::parseToAdmin(string line) {
 	admin.setName(info[0]);
 	admin.setID(stoi(info[1]));
 	admin.setPassword(info[2]);
-	admin.setSalary(stod(info[3]));
+	admin.setBalance(stod(info[3]));
+	admin.setSalary(stod(info[4]));
 	return admin;
 }
 

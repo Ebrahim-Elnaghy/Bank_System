@@ -10,17 +10,20 @@ private:
 	string name;
 	int id;
 	string password;
+	double balance;
 public:
 	// constructor
-    Person();
-    Person(string name ,int id, string password);
+	Person();
+    Person(string name ,int id, string password,double balance);
 	// setters
 	void setName(string name);
 	void setID(int id);
 	void setPassword(string password);
+	void setBalance(double balance);
 	// getters
 	string getName();
 	int getID();
 	string getPassword();
-	void display();
+	double getBalance();
+	 void display();
 };

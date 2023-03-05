@@ -3,13 +3,13 @@
 
 using namespace std;
 
-class Employee : public Person {
+class Employee : public Client {
 private:
 	double salary;
 public:
 	// constructor
-    Employee();
-	Employee(string name,int id, string password, double salary);
+	Employee();
+	Employee(string name, int id, string password, double balance, double salary);
 	// setters
 	void setSalary(double salary);
 	// getters
@@ -17,8 +17,9 @@ public:
 	// display employee info
 	void display();
 	void addClient(Client& client);
+	Client* searchClient(int id);
 	void listClient();
+	void editClient(int id, string name, string password, double balance);
 };
 
-static vector<Employee> employees;
-static vector<Employee>::iterator employees_iterator;
+

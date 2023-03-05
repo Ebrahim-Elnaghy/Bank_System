@@ -1,35 +1,38 @@
 #include "Admin.h"
+#include "BankData.h"
 
 
 
 // constructor
-Admin::Admin() : Employee() {}
-Admin::Admin(string name,int id,string password, double salary) : Employee(name,id,password, salary){
-}
+Admin::Admin() {};
+Admin::Admin(string name, int id, string password,double balance, double salary) : Employee(name, id, password,balance, salary) {}
 //Methods
-void Admin::display() {
-	Person::display();
-	cout << "Salary: " << getSalary() << endl;
+
+void Admin::addEmployee(Employee& c) {
+	BankData::employees.push_back(c);
+}
+
+Employee* Admin::searchEmployee(int id) {
+	for (BankData::employees_iterator = BankData::employees.begin(); BankData::employees_iterator != BankData::employees.end(); BankData::employees_iterator++) {
+		if (BankData::employees_iterator->getID() == id) {
+			return BankData::employees_iterator._Ptr;
+		}
+
+	}
+	return nullptr;
+}
+
+void Admin::editEmployee(int id, string name, string password, double salary) {
+	Employee* c = searchEmployee(id);
+	c->setName(name);
+	c->setPassword(password);
+	c->setSalary(salary);
 }
 
 void Admin::listEmployees() {
 
-	for (employees_iterator = employees.begin(); employees_iterator != employees.end(); employees_iterator++) {
-		employees_iterator->display();
+	for (BankData::employees_iterator = BankData::employees.begin(); BankData::employees_iterator != BankData::employees.end(); BankData::employees_iterator++) {
+		BankData::employees_iterator->display();
 		cout << "=================" << endl;
 	}
-}
-
-Employee* Admin:: searchEmployee(int id)
-{
-    for (int i = 0; i < employees.size(); i++)
-    {
-        if (employees[i].getID() == id)
-        {
-            Employee* c = &employees[i];
-            cout << "found";
-            return c;
-        }
-    }
-    return nullptr;
 }

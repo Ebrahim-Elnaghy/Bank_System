@@ -1,16 +1,11 @@
 #include "Person.h"
 // constructor
-Person::Person() {
-	name = "N/A";
-	id = 0;
-	password = "N/A";
-
-}
-Person::Person(string name,int id, string password) {
-	id = 0;
+Person::Person() {};
+Person::Person(string name = "N/A", int id = 0, string password = "N/A", double balance = 0.0) {
 	setName(name);
 	setID(id);
 	setPassword(password);
+	setBalance(balance);
 }
 
 // setters
@@ -36,6 +31,15 @@ void Person::setPassword(string password) {
 	}
 }
 
+void Person::setBalance(double balance) {
+	if (Validation::validateBalance(balance)) {
+		this->balance = balance;
+	}
+	else {
+		cout << "Client balance is insufficient. The minimum balance required is 1500." << endl;
+	}
+}
+
 // getters
 string Person::getName() {
 
@@ -50,7 +54,13 @@ string Person::getPassword() {
 	return this->password;
 }
 
+double Person::getBalance() {
+	return this->balance;
+}
+
 void Person::display() {
 	cout << "Name: " << getName() << endl;
 	cout << "ID: " << getID() << endl;
+	cout << "Balance: " << getBalance() << endl;
+
 }

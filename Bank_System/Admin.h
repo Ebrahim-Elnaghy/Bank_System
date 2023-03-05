@@ -8,12 +8,12 @@ class Admin : public Employee {
 public:
 	// constructor
 	Admin();
-	Admin(string name,int id, string password, double salary);
+	Admin(string name, int id, string password,double balance, double salary);
 	//Methods
-	void display();
-	void listEmployees();
+	void addEmployee(Employee& employee);
 	Employee* searchEmployee(int id);
+	void editEmployee(int id, string name, string password, double salary);
+	void listEmployees();
+
 };
 
-static vector<Admin> admins;
-static vector<Admin>::iterator admins_iterator;

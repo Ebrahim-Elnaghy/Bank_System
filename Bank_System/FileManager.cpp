@@ -39,9 +39,3 @@ void FileManager::removeAllEmployees() {
 void FileManager::removeAllAdmins() {
 	FilesHelper::clearFile("Admins.txt", "AdminLastId.txt");
 }
-
-void FileManager::saveData() {
-	FilesHelper::saveAllEmployees();
-	FilesHelper::saveAllClients();
-	FilesHelper::saveAllAdmins();
-}

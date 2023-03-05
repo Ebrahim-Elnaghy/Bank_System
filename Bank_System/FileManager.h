@@ -13,6 +13,5 @@ public:
 	static void removeAllClients();
 	static void removeAllEmployees();
 	static void removeAllAdmins();
-	static void saveData();
 	static void getData();
 };

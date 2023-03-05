@@ -7,14 +7,10 @@ using namespace std;
 
 class Client : public Person {
 private:
-	double balance;
 public:
 	// constructor
-    Client();
-	Client(string name , string password, double balance);
-	// setters and getters
-	void setBalance(double balance);
-	double getBalance();
+	Client();
+	Client(string name, int id, string password, double balance);
 	//Methods
 	// deposit
 	void deposit(double amount);
@@ -25,8 +21,4 @@ public:
 	// transfer money to another client
 	void transfer(Client& other, double amount);
 	// display Client info
-	void display();
 };
-
-static vector<Client> clients;
-static vector<Client>::iterator clients_iterator;

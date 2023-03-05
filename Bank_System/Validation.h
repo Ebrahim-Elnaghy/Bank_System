@@ -10,7 +10,7 @@ public:
 
     static bool validatePassword(string& password);
 
-    static bool validateClientBalance(double balance);
+    static bool validateBalance(double balance);
 
-    static bool validateEmployeeSalary(double salary);
+    static bool validateSalary(double salary);
 };
