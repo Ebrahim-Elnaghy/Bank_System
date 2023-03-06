@@ -1,8 +1,10 @@
 #include "FileManager.h"
 void FileManager::addClient(Client client) {
+	BankData::clients.push_back(client);
 	FilesHelper::saveClient(client);
 }
 void FileManager::addEmployee(Employee employee) {
+	BankData::employees.push_back(employee);
 	FilesHelper::saveEmployee("Employees.txt", "EmployeeLastId.txt", employee);
 }
 
@@ -27,6 +29,8 @@ void FileManager::getAllAdmins() {
 	getAllEmployees();
 	getAllAdmins();
 }
+
+
 
 void FileManager::removeAllClients() {
 	FilesHelper::clearFile("Clients.txt", "ClientLastId.txt");

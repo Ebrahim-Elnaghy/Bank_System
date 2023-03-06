@@ -7,6 +7,6 @@ using namespace std;
 
 int main() {
 	FileManager::getData();
-	Employee e("Ebrahim Elnaghy", 0, "pas123123", 3000, 7000);
+	Admin e("Ebrahim Elnaghy", 0, "pas123123", 3000, 7000);
 	e.listClient();
 }

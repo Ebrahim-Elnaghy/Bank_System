@@ -1,12 +1,11 @@
 #include "Employee.h"
 #include "BankData.h"
-#include "FilesHelper.h"
-
-
-
+#include"FileManager.h"
 // constructor
-Employee::Employee() {};
-Employee::Employee(string name, int id, string password, double balance, double salary = 0) : Client(name, id, password, balance) {
+Employee::Employee() {
+	salary = 0.0;
+};
+Employee::Employee(string name, int id, string password, double balance, double salary) : Client(name, id, password, balance) {
 	setSalary(salary);
 }
 // setters
@@ -30,14 +29,15 @@ void Employee::display() {
 	cout << "Salary: " << getSalary() << endl;
 }
 
+//this well bush back to clients vector and save to clients.txt
 void Employee::addClient(Client& client) {
-	BankData::clients.push_back(client);
+	FileManager::addClient(client);
 }
 
 Client* Employee::searchClient(int id) {
-	for (BankData::clients_iterator = BankData::clients.begin(); BankData::clients_iterator != BankData::clients.end(); BankData::clients_iterator++) {
-		if (BankData::clients_iterator->getID() == id) {
-			return BankData::clients_iterator._Ptr;
+	for (auto& Client : BankData::clients) {
+		if (Client.getID() == id) {
+			return &Client;
 		}
 
 	}
@@ -46,8 +46,8 @@ Client* Employee::searchClient(int id) {
 
 void Employee::listClient() {
 
-	for (BankData::clients_iterator = BankData::clients.begin(); BankData::clients_iterator != BankData::clients.end(); BankData::clients_iterator++) {
-		BankData::clients_iterator->display();
+	for (auto& Client : BankData::clients) {
+		Client.display();
 		cout << "==============================" << endl;
 	}
 }

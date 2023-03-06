@@ -1,7 +1,12 @@
 #include "Person.h"
 // constructor
-Person::Person() {};
-Person::Person(string name = "N/A", int id = 0, string password = "N/A", double balance = 0.0) {
+Person::Person() {
+	name = "N/A";
+	id = 0;
+	password = "N/A";
+	balance = 0.0;
+};
+Person::Person(string name , int id , string password , double balance) {
 	setName(name);
 	setID(id);
 	setPassword(password);
